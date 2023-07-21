@@ -2,6 +2,10 @@ from typing import TypedDict, Final
 
 
 class Order(TypedDict):
+    """
+    Orders
+    """
+
     name: str
     price: float
 
@@ -32,10 +36,10 @@ def calculate_subtotal(orders: OrderList) -> float:
     """
     print("Calculating bill subtotal...")
     ### WRITE SOLUTION HERE
-    sum: float = 0
+    order_sum: float = 0
     for order in orders:
-        sum += order["price"]
-    return round(sum, 2)
+        order_sum += order["price"]
+    return round(order_sum, 2)
 
 
 def calculate_tax(subtotal: float) -> float:
@@ -48,7 +52,8 @@ def calculate_tax(subtotal: float) -> float:
         subtotal: the price to get the tax of
 
     Returns:
-        float - The tax required of a given subtotal, which is 15% rounded to two decimals.
+        float - The tax required of a given subtotal, which is 15% rounded
+        to two decimals.
     """
     print("Calculating tax from subtotal...")
     ### WRITE SOLUTION HERE
@@ -59,7 +64,8 @@ def summarize_order(orders: OrderList) -> tuple[list[str], float]:
     """Summarizes the order
 
     [IMPLEMENT ME]
-        1. Calculate the total (subtotal + tax) and store it in a variable named total (rounded to two decimals)
+        1. Calculate the total (subtotal + tax) and store it in a variable
+        named total (rounded to two decimals)
         2. Store only the names of all the items in the order in a list called names
         3. Return names and total.
 
@@ -72,7 +78,6 @@ def summarize_order(orders: OrderList) -> tuple[list[str], float]:
         return names, total
 
     """
-    print_order(orders)
     ### WRITE SOLUTION HERE
     order_names = []
     order_names = [item["name"] for item in orders]
@@ -83,8 +88,10 @@ def summarize_order(orders: OrderList) -> tuple[list[str], float]:
     return order_names, round(total, 2)
 
 
-# This function is provided for you, and will print out the items in an order
 def print_order(order: OrderList) -> OrderList:
+    """
+    This function is provided for you, and will print out the items in an order
+    """
     print("You have ordered " + str(len(order)) + " items")
     items = []
     items = [item["name"] for item in order]
@@ -92,35 +99,38 @@ def print_order(order: OrderList) -> OrderList:
     return order
 
 
-# This function is provided for you, and will display the menu
 def display_menu() -> None:
+    """
+    This function is provided for you, and will display the menu
+    """
     print("------- Menu -------")
-    for selection in menu:
+    for order_no, food in menu.items():
         print(
-            f"{selection}. {menu[selection]['name'] : <9} | {menu[selection]['price'] : >5}"
+            f"{order_no}. {food['name'] : <9}\
+            | {food['price'] : >5}"
         )
     print()
 
 
-# This function is provided for you, and will create an order by prompting the user to select menu items
 def take_order() -> OrderList:
+    """
+    This function is provided for you, and will create an order
+    by prompting the user to select menu items
+    """
     display_menu()
     order = []
     count = 1
-    for i in range(3):
+    for _ in range(3):
         item = input("Select menu item number " + str(count) + " (from 1 to 5): ")
         count += 1
         order.append(menu[int(item)])
     return order
 
 
-"""
-Here are some sample function calls to help you test your implementations.
-Feel free to change, uncomment, and add these as you wish.
-"""
-
-
 def main() -> None:
+    """
+    main: fn
+    """
     orders = take_order()
     print_order(orders)
     summarize_order(orders)
