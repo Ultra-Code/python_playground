@@ -1,3 +1,6 @@
+"""
+Excercise on datastructures and loops
+"""
 from typing import TypedDict, Final
 
 
@@ -5,7 +8,6 @@ class Order(TypedDict):
     """
     Orders
     """
-
     name: str
     price: float
 

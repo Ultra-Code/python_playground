@@ -1,16 +1,20 @@
+"""
+Learning about loops
+"""
 from typing import Final
 
-favorites: Final = ["banku", "wakye", "eba"]
+FAVORITES: Final = ["banku", "wakye", "eba"]
 
-for idx, items in enumerate(favorites):
+for idx, items in enumerate(FAVORITES):
     print(idx, items)
 
-favorite = ["Creme Brulee", "Apple Pie", "Churros", "Tiramisú", "Chocolate Cake"]
-
-count = 0
-
-while count < len(favorite):
-    print("One of my favorite desserts is", favorite[count])
-    count += 1
+# FAVORITES = ["Creme Brulee", "Apple Pie", "Churros", "Tiramisú", "Chocolate Cake"]
 
 
+def while_loop() -> None:
+    """while loop"""
+    count = 0
+
+    while count < len(FAVORITES):
+        print("One of my favorite desserts is", FAVORITES[count])
+        count += 1
