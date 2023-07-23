@@ -12,3 +12,82 @@ python = "^3.11"
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.pylint.main]
+# Use multiple processes to speed up Pylint. Specifying 0 will auto-detect the
+# number of processors available to use, and will cap the count on Windows to
+# avoid hangs.
+jobs = 0
+
+[tool.pylint.basic]
+# Naming style matching correct argument names.
+argument-naming-style = "snake_case"
+
+# Naming style matching correct attribute names.
+attr-naming-style = "snake_case"
+
+# Bad variable names which should always be refused, separated by a comma.
+bad-names = ["foo", "bar", "baz", "toto", "tutu", "tata"]
+
+# Naming style matching correct class attribute names.
+class-attribute-naming-style = "any"
+
+# Naming style matching correct class constant names.
+class-const-naming-style = "UPPER_CASE"
+
+# Naming style matching correct class names.
+class-naming-style = "PascalCase"
+
+# Naming style matching correct constant names.
+const-naming-style = "UPPER_CASE"
+
+# Naming style matching correct function names.
+function-naming-style = "camelCase"
+
+# Good variable names which should always be accepted, separated by a comma.
+good-names = ["i", "j", "k", "ex", "Run", "_"]
+
+# Naming style matching correct inline iteration names.
+inlinevar-naming-style = "any"
+
+# Naming style matching correct method names.
+method-naming-style = "camelCase"
+
+# Naming style matching correct module names.
+module-naming-style = "snake_case"
+
+# Naming style matching correct variable names.
+variable-naming-style = "snake_case"
+
+[tool.pylint."messages control"]
+# Disable the message, report, category or checker with the given id(s). You can
+# either give multiple identifiers separated by comma (,) or put this option
+# multiple times (only on the command line, not in the configuration file where
+# it should appear only once). You can also use "--disable=all" to disable
+# everything first and then re-enable specific checks. For example, if you want
+# to run only the similarities checker, you can use "--disable=all
+# --enable=similarities". If you want to run only the classes checker, but have
+# no Warning level messages displayed, use "--disable=all --enable=classes
+# --disable=W".
+disable = ["raw-checker-failed", "bad-inline-option", "locally-disabled", "file-ignored", "suppressed-message", "useless-suppression", "deprecated-pragma", "use-symbolic-message-instead"]
+
+# Enable the message, report, category or checker with the given id(s). You can
+# either give multiple identifier separated by comma (,) or put this option
+# multiple time (only on the command line, not in the configuration file where it
+# should appear only once). See also the "--disable" option for examples.
+enable = ["c-extension-no-member"]
+
+[tool.pylint.typecheck]
+# Tells whether missing members accessed in mixin class should be ignored. A
+# class is considered mixin if its name matches the mixin-class-rgx option.
+# Tells whether to warn about missing members when the owner of the attribute is
+# inferred to be None.
+ignore-none = true
+
+# This flag controls whether pylint should warn about no-member and similar
+# checks whenever an opaque object is returned when inferring. The inference can
+# return multiple potential results while evaluating a Python object, but some
+# branches might not be evaluated, which results in partial inference. In that
+# case, it might be useful to still emit no-member and other checks for the rest
+# of the inferred objects.
+ignore-on-opaque-inference = false
