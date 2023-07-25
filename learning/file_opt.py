@@ -115,13 +115,13 @@ def read_file_in_reverse(file_name: str) -> list[str]:
 
 def main() -> None:
     "main"
-    # read_file("learning/sampletext.txt")
-    # print(read_file_into_list("learning/sampletext.txt"))
-    # write_first_line_to_file(
-    #     read_file("learning/sampletext.txt"), "learning/oneline.txt"
-    # )
-    # print(read_even_numbered_lines("learning/sampletext.txt"))
-    # print(read_file_in_reverse("learning/sampletext.txt"))
+    read_file("learning/sampletext.txt")
+    print(read_file_into_list("learning/sampletext.txt"))
+    write_first_line_to_file(
+        read_file("learning/sampletext.txt"), "learning/oneline.txt"
+    )
+    print(read_even_numbered_lines("learning/sampletext.txt"))
+    print(read_file_in_reverse("learning/sampletext.txt"))
 
 
 if __name__ == "__main__":
