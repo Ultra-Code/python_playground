@@ -1,10 +1,9 @@
 import ctypes as c
 import platform
 import sys
-from typing import Any
 
 
-def get_libc() -> Any:
+def get_libc() -> c.CDLL:
     match platform.system():
         case "Linux":
             return c.cdll.LoadLibrary("libc.so.6")
@@ -17,4 +16,5 @@ def get_libc() -> Any:
 
 
 libc = get_libc()
-libc.print(b"hello world")
+msg = c.c_wchar_p("hello world")
+libc.printf(msg)
