@@ -21,13 +21,11 @@ line-length = 99
 # Unlike Flake8, Ruff doesn't enable pycodestyle warnings (`W`) or
 # McCabe complexity (`C901`) by default.
 select = ["ALL"]
-ignore = []
+ignore = ["D","T20"]
 
 # Allow autofix for all enabled rules (when `--fix`) is provided.
 fixable = ["ALL"]
 unfixable = []
-
-line-length = 99
 
 [tool.pylint.main]
 # Use multiple processes to speed up Pylint. Specifying 0 will auto-detect the
@@ -39,53 +37,12 @@ jobs = 0
 # usually to register additional checkers.
 load-plugins = ["pylint.extensions.emptystring","pylint.extensions.comparetozero","pylint.extensions.comparison_placement",
                 "pylint.extensions.confusing_elif","pylint.extensions.for_any_all","pylint.extensions.consider_refactoring_into_while_condition",
-                "pylint.extensions.consider_ternary_expression","pylint.extensions.bad_builtin","pylint.extensions.mccabe",
+                "pylint.extensions.consider_ternary_expression","pylint.extensions.bad_builtin",
                 "pylint.extensions.dict_init_mutate","pylint.extensions.check_elif","pylint.extensions.empty_comment",
-                "pylint.extensions.eq_without_hash","pylint.extensions.private_import","pylint.extensions.magic_value",
-                "pylint.extensions.redefined_variable_type","pylint.extensions.no_self_use",
-                "pylint.extensions.overlapping_exceptions","pylint.extensions.docparams","pylint.extensions.redefined_loop_name",
-                "pylint.extensions.set_membership","pylint.extensions.typing","pylint.extensions.while_used"
+                "pylint.extensions.eq_without_hash","pylint.extensions.private_import","pylint.extensions.redefined_variable_type",
+                "pylint.extensions.no_self_use","pylint.extensions.overlapping_exceptions","pylint.extensions.redefined_loop_name",
+                "pylint.extensions.set_membership","pylint.extensions.while_used"
 ]
-
-[tool.pylint.basic]
-# Naming style matching correct argument names.
-argument-naming-style = "snake_case"
-
-# Naming style matching correct attribute names.
-attr-naming-style = "snake_case"
-
-# Bad variable names which should always be refused, separated by a comma.
-bad-names = ["foo", "bar", "baz", "toto", "tutu", "tata"]
-
-# Naming style matching correct class attribute names.
-class-attribute-naming-style = "any"
-
-# Naming style matching correct class constant names.
-class-const-naming-style = "UPPER_CASE"
-
-# Naming style matching correct class names.
-class-naming-style = "PascalCase"
-
-# Naming style matching correct constant names.
-const-naming-style = "UPPER_CASE"
-
-# Naming style matching correct function names.
-function-naming-style = "camelCase"
-
-# Good variable names which should always be accepted, separated by a comma.
-good-names = ["i", "j", "k", "ex", "Run", "_"]
-
-# Naming style matching correct inline iteration names.
-inlinevar-naming-style = "any"
-
-# Naming style matching correct method names.
-method-naming-style = "camelCase"
-
-# Naming style matching correct module names.
-module-naming-style = "snake_case"
-
-# Naming style matching correct variable names.
-variable-naming-style = "snake_case"
 
 [tool.pylint."messages control"]
 # Disable the message, report, category or checker with the given id(s). You can
@@ -97,26 +54,14 @@ variable-naming-style = "snake_case"
 # --enable=similarities". If you want to run only the classes checker, but have
 # no Warning level messages displayed, use "--disable=all --enable=classes
 # --disable=W".
-disable = []
+disable = ["too-many-return-statements","line-too-long","missing-module-docstring","missing-function-docstring",
+           "missing-class-docstring"
+]
 
 # Enable the message, report, category or checker with the given id(s). You can
 # either give multiple identifier separated by comma (,) or put this option
 # multiple time (only on the command line, not in the configuration file where it
 # should appear only once). See also the "--disable" option for examples.
 enable = ["raw-checker-failed", "bad-inline-option", "locally-disabled", "file-ignored",
-          "suppressed-message", "useless-suppression", "deprecated-pragma", "use-symbolic-message-instead"]
-
-[tool.pylint.typecheck]
-# Tells whether missing members accessed in mixin class should be ignored. A
-# class is considered mixin if its name matches the mixin-class-rgx option.
-# Tells whether to warn about missing members when the owner of the attribute is
-# inferred to be None.
-ignore-none = true
-
-# This flag controls whether pylint should warn about no-member and similar
-# checks whenever an opaque object is returned when inferring. The inference can
-# return multiple potential results while evaluating a Python object, but some
-# branches might not be evaluated, which results in partial inference. In that
-# case, it might be useful to still emit no-member and other checks for the rest
-# of the inferred objects.
-ignore-on-opaque-inference = false
+          "suppressed-message", "useless-suppression", "deprecated-pragma", "use-symbolic-message-instead"
+]
