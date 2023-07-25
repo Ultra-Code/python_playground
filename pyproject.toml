@@ -21,11 +21,13 @@ line-length = 99
 # Unlike Flake8, Ruff doesn't enable pycodestyle warnings (`W`) or
 # McCabe complexity (`C901`) by default.
 select = ["ALL"]
-ignore = ["D","W","T20"]
+ignore = ["D","W","T20","S101"]
 
 # Allow autofix for all enabled rules (when `--fix`) is provided.
 fixable = ["ALL"]
 unfixable = []
+
+line-length = 99
 
 [tool.pylint.main]
 # Use multiple processes to speed up Pylint. Specifying 0 will auto-detect the
@@ -55,7 +57,7 @@ load-plugins = ["pylint.extensions.emptystring","pylint.extensions.comparetozero
 # no Warning level messages displayed, use "--disable=all --enable=classes
 # --disable=W".
 disable = ["too-many-return-statements","line-too-long","missing-module-docstring","missing-function-docstring",
-           "missing-class-docstring"
+           "missing-class-docstring","wrong-import-position"
 ]
 
 # Enable the message, report, category or checker with the given id(s). You can
