@@ -141,11 +141,12 @@ def repeat(num_times):
 
 
 @repeat(num_times=4)
-def greet(name):
+def greet(name: str) -> None:
     print(f"Hello {name}")
 
-add = lambda x, y: x + y
-assert add(5, 3) == 8
-assert (lambda x, y: x + y)(5, 3) == 8
 
-assert sorted(range(-5, 6), key=lambda x: x ** 2) == [0, -1, 1, -2, 2, -3, 3, -4, 4, -5, 5]
+add = lambda x, y: x + y  # noqa: E731
+assert add(5, 3) == int(8)
+assert (lambda x, y: x + y)(5, 3) == int(8)  # noqa: PLC3002
+
+assert sorted(range(-5, 6), key=lambda x: x**2) == [0, -1, 1, -2, 2, -3, 3, -4, 4, -5, 5]
