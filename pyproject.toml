@@ -58,7 +58,7 @@ load-plugins = ["pylint.extensions.emptystring","pylint.extensions.comparetozero
 # --disable=W".
 disable = ["too-many-return-statements","line-too-long","missing-module-docstring","missing-function-docstring",
            "missing-class-docstring","wrong-import-position", "unused-argument","unnecessary-lambda-assignment",
-    "unnecessary-direct-lambda-call"
+    "unnecessary-direct-lambda-call", "unnecessary-comprehension"
 ]
 
 # Enable the message, report, category or checker with the given id(s). You can
