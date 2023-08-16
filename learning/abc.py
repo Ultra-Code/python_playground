@@ -3,7 +3,7 @@ import sys
 from abc import ABC, abstractmethod
 
 if sys.executable.find("pypy3") != -1:
-    sys.path.insert(1, "/usr/lib/python3.11/site-packages/")
+    sys.path.append("/usr/lib/python3.11/site-packages/")
 
 if sys.version_info >= (3, 11, 0):
     from typing import Self
