@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "mariadb_sql"
+version = "0.1.0"
+description = ""
+authors = ["Ultra-Code <mega.alpha100@gmail.com>"]
+readme = "README.md"
+packages = [{include = "src"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+mariadb = "^1.1.7"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
