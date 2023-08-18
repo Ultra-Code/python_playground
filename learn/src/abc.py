@@ -1,9 +1,11 @@
 # Import ABC and abstractmethod from the module abc (which stands for abstract base classes)
+import platform
 import sys
 from abc import ABC, abstractmethod
 
-if sys.executable.find("pypy3") != -1:
+if hasattr(platform, "python_implementation") and platform.python_implementation() == "PyPy":
     sys.path.append("/usr/lib/python3.11/site-packages/")
+
 
 if sys.version_info >= (3, 11, 0):
     from typing import Self
