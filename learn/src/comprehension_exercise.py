@@ -46,5 +46,17 @@ def main() -> None:
     print(f"Initials and ids: {map_id_to_initial(employee_list)}")
 
 
+def list_of_list() -> None:
+    width = 5
+    height = 3
+    # list[5 by 3] array
+    field: list[list[str]] = [["grass" for _ in range(width)] for _ in range(height)]
+
+    for row in field:
+        for cell in row:
+            print(cell, end=" ")
+        print()
+
+
 if __name__ == "__main__":
     main()
