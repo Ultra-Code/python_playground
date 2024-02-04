@@ -9,9 +9,9 @@ a, b, c = 1, 2, 3
 
 name: str = "hello"
 
-from typing import TypeAlias, List
+from typing import TypeAlias
 
-Vector: TypeAlias = List[float]
+Vector: TypeAlias = list[float]
 
 
 def scale(scalar: float, vector: Vector) -> Vector:
@@ -46,8 +46,8 @@ def casting() -> None:
     ord("c")
     hex(0x1)
     oct(1)
-    float()
-    int()
+    0.0
+    0
     set()
     list()
     dict()

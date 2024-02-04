@@ -8,7 +8,7 @@ def withoutWith() -> None:
     """
     opening a file without the use of the with statement
     """
-    file = open("file.txt", mode="r", buffering=1, encoding="utf-8")
+    file = open("file.txt", buffering=1, encoding="utf-8")
 
     data = file.readline()
 
@@ -18,7 +18,7 @@ def withoutWith() -> None:
 
 def withWith() -> None:
     """opening a file with the use of the with statement"""
-    with open("file.txt", mode="r", buffering=1, encoding="utf-8") as file:
+    with open("file.txt", buffering=1, encoding="utf-8") as file:
         data = file.readline()
         print(data)
 
@@ -34,7 +34,7 @@ def createFile() -> None:
 
 def loadFile() -> None:
     "load a files conent"
-    with open("learning/petnames.txt", mode="r", encoding="utf-8") as petnames:
+    with open("learning/petnames.txt", encoding="utf-8") as petnames:
         content = petnames.read()
         petname_list = content.split(sep="\n")
         print(random.choice(petname_list))

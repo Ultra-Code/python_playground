@@ -20,7 +20,7 @@ print(c_menu_filter)
 # functools.reduce(lambda acc, pair: acc + pair[0], pairs, 0)
 # good
 pairs = [(1, "a"), (2, "b"), (3, "c")]
-assert sum(x for x, _ in pairs) == int(6)
+assert sum(x for x, _ in pairs) == 6
 
 # Dictionary Comprehension
 months = ["Jan", "Feb", "Mar", "Apr", "May", "June", "July", "Aug", "Sept", "Oct", "Nov", "Dec"]

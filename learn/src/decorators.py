@@ -1,7 +1,7 @@
 import logging
 from collections.abc import Callable
 from functools import wraps
-from typing import ParamSpec, TypeVar
+from typing import ParamSpec, TypeVar, Self
 
 T = TypeVar("T")
 P = ParamSpec("P")
@@ -52,7 +52,7 @@ class Circle:
         return self._radius
 
     @radius.setter
-    def radius(self, value):
+    def radius(self: Self, value: float) -> None:
         """Set radius, raise error if negative
         .radius is a mutable property: it can be set to a different value. However, by defining a
         setter method, we can do some error testing to make sure it`s not set to a nonsensical
@@ -146,7 +146,19 @@ def greet(name: str) -> None:
 
 
 add = lambda x, y: x + y  # noqa: E731
-assert add(5, 3) == int(8)
+assert add(5, 3) == 8
 assert (lambda x, y: x + y)(5, 3) == int(8)  # noqa: PLC3002
 
-assert sorted(range(-5, 6), key=lambda x: x**2) == [0, -1, 1, -2, 2, -3, 3, -4, 4, -5, 5]
+assert sorted(range(-5, 6), key=lambda x: x**2) == [
+    0,
+    -1,
+    1,
+    -2,
+    2,
+    -3,
+    3,
+    -4,
+    4,
+    -5,
+    5,
+]

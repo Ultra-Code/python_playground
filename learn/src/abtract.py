@@ -1,9 +1,13 @@
-# Import ABC and abstractmethod from the module abc (which stands for abstract base classes)
+# Import ABC and abstractmethod from the module abc (which stands for
+# abstract base classes)
 import platform
 import sys
 from abc import ABC, abstractmethod
 
-if hasattr(platform, "python_implementation") and platform.python_implementation() == "PyPy":
+if (
+    hasattr(platform, "python_implementation")
+    and platform.python_implementation() == "PyPy"
+):
     sys.path.append("/usr/lib/python3.11/site-packages/")
 
 

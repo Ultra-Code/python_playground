@@ -142,4 +142,4 @@ assert sorted(inventory.elements()) == ["bread", "bread", "bread", "sword"]
 more_loot = {"sword": 1, "apple": 1}
 inventory.update(more_loot)
 assert inventory == Counter({"bread": 3, "sword": 2, "apple": 1})
-assert inventory.total() == int(6)
+assert inventory.total() == 6

@@ -19,7 +19,7 @@ def read_file(file_name: str) -> str:
         string: contents of the given file.
     """
     ### WRITE SOLUTION HERE
-    with open(file_name, mode="r", encoding="utf-8") as file:
+    with open(file_name, encoding="utf-8") as file:
         content = file.read()
         print(content)
         return content
@@ -40,7 +40,7 @@ def read_file_into_list(file_name: str) -> list[str]:
         list: a list where each element is a line in the file.
     """
     ### WRITE SOLUTION HERE
-    with open(file_name, mode="r", encoding="utf-8") as file:
+    with open(file_name, encoding="utf-8") as file:
         content_list = file.readlines()
         return content_list
 
@@ -80,7 +80,7 @@ def read_even_numbered_lines(file_name: str) -> list[str]:
         list: a list of the even-numbered lines of the file
     """
     ### WRITE SOLUTION HERE
-    with open(file_name, mode="r", encoding="utf-8") as file:
+    with open(file_name, encoding="utf-8") as file:
         content = file.readlines()
         even_list: list[str] = []
         for even_index in range(1, len(content), 2):
@@ -104,7 +104,7 @@ def read_file_in_reverse(file_name: str) -> list[str]:
         list: list of the lines of the file in reverse order.
     """
     ### WRITE SOLUTION HERE
-    with open(file_name, mode="r", encoding="utf-8") as file:
+    with open(file_name, encoding="utf-8") as file:
         content = file.readlines()
         content_itr = reversed(content)
         reversed_content = []
@@ -118,7 +118,7 @@ def main() -> None:
     read_file("learning/sampletext.txt")
     print(read_file_into_list("learning/sampletext.txt"))
     write_first_line_to_file(
-        read_file("learning/sampletext.txt"), "learning/oneline.txt"
+        read_file("learning/sampletext.txt"), "learning/oneline.txt",
     )
     print(read_even_numbered_lines("learning/sampletext.txt"))
     print(read_file_in_reverse("learning/sampletext.txt"))
