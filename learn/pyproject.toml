@@ -18,10 +18,34 @@ python = "^3.10"
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
 
-[tool.black]
-line-length = 99
+[tool.mypy]
+follow_imports = "normal"
+disallow_any_unimported = true
+disallow_any_expr = true
+disallow_any_decorated = true
+disallow_any_explicit = true
+warn_redundant_casts = true
+warn_unused_ignores = true
+warn_return_any = true
+warn_unreachable = true
+strict_equality = true
+strict = true
+cache_fine_grained = true
+warn_incomplete_stub = true
+verbosity = 0
+
+[tool.pylsp-mypy]
+enabled = true
+live_mode = true
+dmypy = false # it conflicts with live_mode
+strict = true
+exclude = ["tests/*"]
 
 [tool.ruff]
+line-length = 80
+indent-width = 4
+
+[tool.ruff.lint]
 # Enable the pycodestyle (`E`) and Pyflakes (`F`) rules by default.
 # Unlike Flake8, Ruff doesn't enable pycodestyle warnings (`W`) or
 # McCabe complexity (`C901`) by default.
@@ -32,7 +56,15 @@ ignore = ["D","W","T20","S101"]
 fixable = ["ALL"]
 unfixable = []
 
-line-length = 99
+[tool.ruff.format]
+# use double quotes for strings.
+quote-style = "double"
+# indent with spaces, rather than tabs.
+indent-style = "space"
+# respect magic trailing commas.
+skip-magic-trailing-comma = false
+# automatically detect the appropriate line ending.
+line-ending = "auto"
 
 [tool.pylint.main]
 # Use multiple processes to speed up Pylint. Specifying 0 will auto-detect the
