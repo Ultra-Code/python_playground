@@ -1,15 +1,18 @@
 from utils import Variant
 from collections import Set
 
+
 fn lists():
     var list = List(2, 3, 5)
     list.append(7)
     list.append(11)
     print("Popping last item from list: ", list.pop())
     for idx in range(len(list)):
-          print(list[idx], end=", ")
+        print(list[idx], end=", ")
+
 
 alias IntOrString = Variant[Int, String]
+
 
 fn to_string(inout x: IntOrString) -> String:
     # if x.isa[String]():
@@ -17,6 +20,7 @@ fn to_string(inout x: IntOrString) -> String:
     # x.isa[Int]()
     # return str(x.get[Int]()[])
     return ""
+
 
 fn optionals():
     # Two ways to initialize an Optional with a value
@@ -35,6 +39,7 @@ fn optionals():
     custom_greeting = str("Hi")
     print(custom_greeting.or_else("Hello"))
 
+
 fn sets():
     var i_like = Set("sushi", "ice cream", "tacos", "pho")
     var you_like = Set("burgers", "tacos", "salad", "ice cream")
@@ -42,6 +47,7 @@ fn sets():
     print("We both like:")
     for item in we_like:
         print("-", item[])
+
 
 fn dicts():
     var d = Dict[String, Float64]()
@@ -51,12 +57,14 @@ fn dicts():
     for item in d.items():
         print(item[].key, item[].value)
 
+
 fn use_to_string():
     # They have to be mutable for now, and implement CollectionElement
     var an_int = IntOrString(4)
     var a_string = IntOrString(String("I'm a string!"))
     var who_knows = IntOrString(0)
     import random
+
     if random.random_ui64(0, 1):
         who_knows.set[String]("I'm actually a string too!")
 
@@ -64,11 +72,13 @@ fn use_to_string():
     print(to_string(a_string))
     print(to_string(who_knows))
 
+
 @value
 struct MyPet:
     # This is the same as SynthesizedMyPet
     var name: String
     var age: Int
+
 
 struct SynthesizedMyPet:
     var name: String
