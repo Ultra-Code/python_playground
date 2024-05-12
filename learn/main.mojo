@@ -14,8 +14,11 @@ from mojofied import (
     sets,
     dicts,
     optionals,
+    use_to_string,
     MyPet,
 )
+
+from mojofied.lifetime import pets
 
 
 fn main():
@@ -34,15 +37,12 @@ fn main():
     # `a = 7`
     # `y = 8`
     print_nicely(a=7, y=8)
-    min(1, 2, 3)
-    add("st", "ry")
-    add(1, 1.333)
+    _ = min(1, 2, 3)
+    _ = add("st", "ry")
+    _ = add(1, 1.333)
     describeDType[DType.float32]()
     sets()
     dicts()
     optionals()
-    var dog = MyPet("Charlie", 5)
-    # Without the copy and move constructors, the following code would not
-    # work because Mojo would not know how to copy an instance of MyPet
-    var poodle = dog
-    print(poodle.name)
+    pets()
+    use_to_string()

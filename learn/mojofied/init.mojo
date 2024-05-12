@@ -33,6 +33,8 @@ fn fun_with_traits[T: Traits](x: T):
     except:...
 
 fn repeat[count:Int](msg:String):
+    # @unroll directive only works if the loop limits are compile-time constants
+    @unroll
     for _ in range(count):
         print(msg)
 
