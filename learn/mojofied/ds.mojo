@@ -72,6 +72,21 @@ fn dicts():
         print(item[].key, item[].value)
 
 
+fn use_to_string():
+    # They have to be mutable for now, and implement CollectionElement
+    var an_int = IntOrString(4)
+    var a_string = IntOrString(String("I'm a string!"))
+    var who_knows = IntOrString(0)
+    import random
+
+    if random.random_ui64(0, 1):
+        who_knows.set[String]("I'm actually a string too!")
+
+    print(to_string(an_int))
+    print(to_string(a_string))
+    print(to_string(who_knows))
+
+
 @value
 struct MyPet:
     # This is the same as SynthesizedMyPet

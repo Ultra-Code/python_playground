@@ -8,7 +8,7 @@ from mojofied import (
     count_many_things,
     print_many,
     print_nicely,
-    min,
+    min_,
     add,
     describeDType,
     sets,
@@ -37,7 +37,7 @@ fn main():
     # `a = 7`
     # `y = 8`
     print_nicely(a=7, y=8)
-    _ = min(1, 2, 3)
+    _ = min_(1, 2, 3)
     _ = add("st", "ry")
     _ = add(1, 1.333)
     describeDType[DType.float32]()

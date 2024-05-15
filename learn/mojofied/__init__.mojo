@@ -12,7 +12,7 @@ from .init import (
     count_many_things,
     print_many,
     print_nicely,
-    min,
+    min_,
     add,
     describeDType,
 )
